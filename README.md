@@ -1,4 +1,4 @@
-# Jobs Client-side UI 
+# Jobs Client-side UI to call back-end services 
 UI applications that calls the Java REST microservices for recruiters and job seekers
 
 > # There are 2 apps -
