@@ -12,3 +12,5 @@ UI applications that calls the Java REST microservices for recruiters and job se
 - BootStrap CSS
 - JavaScript AJAX
 - Visual Studio Code
+
+**Developed by Praffull Manekar**
