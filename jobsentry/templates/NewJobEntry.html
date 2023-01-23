@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewJob</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+<body style="margin-top: 50px;">
+    <div class="container">
+        <h2 class="display-4" style="color:darkcyan">New Job Entry</h2>
+        <hr>
+        <form action="/addjob/" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Job Title</td>
+                    <td><input type="text" name="jobtitle" class="form-control" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td>RecruiterID</td>
+                    <td><input type="number" name="recruiterid" class="form-control" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td>Qualifications (separate by comma)</td>
+                    <td><textarea name="qualifications" cols="50" rows="3" class="form-control" autocomplete="off" required></textarea></td>
+                </tr>
+                <tr>
+                    <td>Locations (separate by comma)</td>
+                    <td><textarea name="locations" id="" cols="50" rows="3" class="form-control" autocomplete="off" required></textarea></td>
+                </tr>
+                <tr>
+                    <td>Skills (separate by comma)</td>
+                    <td><textarea name="skills" cols="50" rows="3" class="form-control" autocomplete="off" required></textarea></td>
+                </tr>
+                <tr>
+                    <td>Responsibilities (separate by comma)</td>
+                    <td><textarea name="responsibilities" cols="50" rows="3" class="form-control" autocomplete="off" required></textarea></td>
+                </tr>
+                <tr>
+                    <td>Annual Package (LPA)</td>
+                    <td><input type="text" name="annualpackage" class="form-control" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td>Experience</td>
+                    <td><input type="text" name="experience" class="form-control" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit" class="btn btn-primary"></td>
+                    <td></td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+</body>
+</html>

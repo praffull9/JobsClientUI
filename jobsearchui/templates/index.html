@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobSearch</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <script type="text/javascript">
+        function createRequestObject() {
+    var tmpXmlHttpObject;
+    if (window.XMLHttpRequest) {
+            tmpXmlHttpObject = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        tmpXmlHttpObject = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    return tmpXmlHttpObject;
+}
+
+
+var http = createRequestObject();
+
+function makeGetRequest() {
+    sk=document.frm.skill.value;
+    loc=document.frm.location.value;
+    //alert(sk+loc);
+    http.open('post', '/jobresponse/');
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("skill="+sk+"&location="+loc);
+    http.onreadystatechange = processResponse;
+    http.send(null);
+}
+
+function processResponse() {
+    if(http.readyState == 4){
+        var response = http.responseText;
+        document.getElementById('result').innerHTML = response;
+    }
+}
+
+
+    </script>
+</head>
+<body style="margin-top: 50px;">
+    <div class="container">
+        
+            <h2 class="display-4" style="color:darkcyan">Job Search Application</h2>
+        
+        
+        <hr>
+        <p>
+        </p>
+        <form name="frm">
+            {% csrf_token %}
+            <table class="table">
+                <tr>
+                    <td>Skill</td>
+                    <td><input type="text" name="skill" class="form-control" autocomplete="off" required></td>
+                
+                    <td>Location</td>
+                    <td><input type="text" name="location" class="form-control" autocomplete="off" required></td>
+                
+                    <td><input type="button" value="Search" onclick="makeGetRequest()" class="btn btn-primary"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+
+        <div id="result"></div>
+        
+
+    </div>
+</body>
+</html>
