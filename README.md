@@ -1,8 +1,8 @@
 # Jobs Client-side UI 
 UI applications that calls the Java REST microservices for recruiters and job seekers
 
-> # There are 2 projects -
-- **Job Entery Project**
+> # There are 2 apps -
+- **Job Entry Project**
 - **Job Search Project**
 
 > # Tools used for development
